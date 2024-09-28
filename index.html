@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Roller</title>
+    <style>
+      body {
+        background-color: #e0ffff; /* Light blue background */
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .dice-container {
+        display: flex;
+        gap: 20px;
+      }
+
+      .die {
+        width: 100px;
+        height: 100px;
+        border: 3px solid black;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        cursor: pointer;
+      }
+
+      button {
+        background-color: #ffd700; /* Gold button */
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>ONLINE DICE</h1>
+      <div class="dice-container">
+        <div class="die" id="die1"></div>
+        <div class="die" id="die2"></div>
+        <div class="die" id="die3"></div>
+      </div>
+      <button id="rollButton">ROLL AGAIN!</button>
+    </div>
+
+    <script>
+      const dice = document.querySelectorAll('.die');
+      const rollButton = document.getElementById('rollButton');
+      const colors = [
+        'red', 'green', 'blue', 'yellow', 'purple', 'orange', 
+        'pink', 'brown', 'cyan', 'magenta', 'lime', 'gray'
+      ];
+
+      rollButton.addEventListener('click', () => {
+        dice.forEach((die) => {
+          const randomColorIndex = Math.floor(Math.random() * 12); 
+          die.style.backgroundColor = colors[randomColorIndex];
+        });
+      });
+    </script>
+  </body>
+</html>
